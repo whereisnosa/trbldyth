@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>trbldyth</title>
+
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+
+    <header>
+      <img class="logo" src="images/trbldyth.png" onclick="menutoggle()" alt="">
+
+      <nav class="navbar">
+        <ul id="MenuItems">
+          <a href="#">Home</a>
+          <a href="#">Products</a>
+          <a href="#">Store</a>
+          <a href="#">Get in</a>
+        </ul>
+
+      </nav>
+      <img src="images/menu.png" width="30px" class="menu-icon" onclick="menutoggle()">
+    </header>
+
+    <section class="container">
+
+      <div class="content col-2">
+        <h3>Vol 1</h3>
+        <p>First release off the TrbldYth collection. Stay tuned.</p>
+        <a class="btn" href="#">COPP</a>
+      </div>
+
+      <div class="image col-2">
+          <img class="trbl active" src="images/shirt2.png" alt="">
+          <img class="trbl" src="images/tee3.png" alt="">
+          <img class="trbl" src="images/09.png" alt="">
+          <img class="trbl" src="images/05.png" alt="">
+          <img class="trbl" src="images/06.png" alt="">
+          <img class="trbl" src="images/08.jpg" alt="">
+          <img class="trbl" src="images/tee6.png" alt="">
+          <img class="trbl" src="images/03.png" alt="">
+      </div>
+
+      <div class="left" onclick="prev()"> < </div>
+      <div class="right" onclick="next()"> > </div>
+
+    </section>
+
+
+  <script type="text/javascript">
+
+  let tbrl = document.querySelectorAll('.trbl');
+  let index = 0;
+
+  function next(){
+    tbrl[index].classList.remove('active');
+    index = (index + 1) % tbrl.length;
+    tbrl[index].classList.add('active');
+  }
+
+  function prev(){
+    tbrl[index].classList.remove('active');
+    index = (index - 1 + tbrl.length) % tbrl.length;
+    tbrl[index].classList.add('active');
+  }
+
+  var MenuItems = document.getElementById("MenuItems");
+
+    MenuItems.style.maxHeight = "0px";
+
+    function menutoggle(){
+      if(MenuItems.style.maxHeight == "0px")
+        {
+          MenuItems.style.maxHeight = "200px"
+        }
+      else
+        {
+          MenuItems.style.maxHeight = "0px"
+        }
+    }
+
+  </script>
+  </body>
+</html>
